@@ -11,10 +11,8 @@ fetchMovies(String titredufilm) async {
       'https://api.themoviedb.org/3/search/movie?api_key=26a145d058cf4d1b17cbf084ddebedec&query=$titredufilm&language=fr-FR');
 
   var res = await http.get(url);
-  // To json
 
   if (res.statusCode >= 200 && res.statusCode < 300) {
-    //Requete ok
     List resBody = jsonDecode(res.body)['results'];
     List<Movie> movies = resBody
         .map((e) => Movie(
@@ -26,11 +24,7 @@ fetchMovies(String titredufilm) async {
             ))
         .toList();
     return movies;
-
-    // print(resBody);
-    // return resBody;
   } else {
-    //Requete pas ok
     print(res.reasonPhrase);
     return [];
   }
