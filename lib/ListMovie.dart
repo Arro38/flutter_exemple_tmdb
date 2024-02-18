@@ -9,9 +9,7 @@ import 'package:http/http.dart' as http;
 fetchMovies(String titredufilm) async {
   var url = Uri.parse(
       'https://api.themoviedb.org/3/search/movie?api_key=26a145d058cf4d1b17cbf084ddebedec&query=$titredufilm&language=fr-FR');
-
   var res = await http.get(url);
-
   if (res.statusCode >= 200 && res.statusCode < 300) {
     List resBody = jsonDecode(res.body)['results'];
     List<Movie> movies = resBody
