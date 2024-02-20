@@ -54,9 +54,6 @@ class _ListMovieState extends State<ListMovie> {
         },
         child: Text("Charger film"),
       ),
-      // movies.map((e) =>
-      // MovieCard(movie: e)
-      // ).toList(),
       for (var m in movies) MovieCard(movie: m),
     ]);
   }
